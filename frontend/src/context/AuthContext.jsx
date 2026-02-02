@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
-import { getMe, login as loginApi } from '../api/authApi';
+import { getMe, login as loginApi, register as registerApi } from '../api/authApi';
 
 const AuthContext = createContext();
 
@@ -31,13 +31,19 @@ export const AuthProvider = ({ children }) => {
         return userRes.data;
     };
 
+    const register = async (userData) => {
+        const res = await registerApi(userData);
+        // After registration, we could automatically log them in or just return the user
+        return res.data;
+    };
+
     const logout = () => {
         localStorage.removeItem('token');
         setUser(null);
     };
 
     return (
-        <AuthContext.Provider value={{ user, login, logout, loading }}>
+        <AuthContext.Provider value={{ user, login, register, logout, loading }}>
             {children}
         </AuthContext.Provider>
     );

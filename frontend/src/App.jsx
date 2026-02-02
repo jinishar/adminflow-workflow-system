@@ -5,9 +5,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import ProtectedRoute from './routes/ProtectedRoute';
 import RoleRoute from './routes/RoleRoute';
-import Login from './pages/Login';
-import AdminLogin from './pages/AdminLogin';
-import PortalSelection from './pages/PortalSelection';
+import AuthPage from './pages/AuthPage';
 
 // Student Pages
 import StudentDashboard from './pages/student/StudentDashboard';
@@ -38,9 +36,10 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/" element={<PortalSelection />} />
-          <Route path="/login/student" element={<Login />} />
-          <Route path="/login/admin" element={<AdminLogin />} />
+          <Route path="/" element={<AuthPage />} />
+          <Route path="/login" element={<AuthPage />} />
+          <Route path="/login/student" element={<Navigate to="/" />} />
+          <Route path="/login/admin" element={<Navigate to="/" />} />
 
           {/* Protected Routes */}
           <Route element={<ProtectedRoute />}>
