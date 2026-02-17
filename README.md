@@ -98,13 +98,3 @@ This project leverages a modern, full-stack architecture:
    npm run dev
    ```
 
-### Default Credentials (Seed Data)
-| Role | Email | Password |
-|------|-------|----------|
-| Admin | `admin1@adminflow.com` | `password123` |
-| Student | `john@student.com` | `password123` |
-
-### API Endpoints
-- **Auth**: `/auth/login`, `/auth/register`, `/auth/me`
-- **Student**: `/requests` (POST), `/requests/my` (GET), `/requests/{id}` (GET)
-- **Admin**: `/admin/requests/pending`, `/admin/requests/{id}/approve`, `/admin/metrics/summary`
